@@ -1,0 +1,14 @@
+<li class="comment">
+  <div>
+    <p><%= comment.user ? comment.user.name : "Unknown" %> <small>&nbsp<%= format_creation_time comment %></small>
+    <p>
+      <%=comment.body%>
+      <%=link_to "reply", new_comment_comment_path(comment) %>
+    </p>
+  </div>
+  <% unless comment.comments.empty? %>
+    <ul class="comment_list">
+      <%= render :partial => 'comment', :collection => comment.comments %>
+    </ul>
+  <% end %>
+</li>

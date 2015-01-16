@@ -1,0 +1,13 @@
+<h2>Comment on this comment</h2>
+
+
+<div>
+  <h5><%= @parent_comment.body %></h5>
+</div>
+<h4>Comment here!</h4>
+  <%= form_for @comment, url: comment_comments_path do |f| %>
+    <%= f.text_area :body, :placeholder => "Enter your Comment", :class => "form-control" %><br>
+    <%= f.submit "Post Comment", class: "btn btn-primary" %>
+  <% end %>
+
+<br><br>

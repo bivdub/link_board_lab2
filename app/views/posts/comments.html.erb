@@ -1,0 +1,12 @@
+<h2><%= link_to @post.title, @post.link, :target => "_blank" %></h2>
+<h4>Comment here!</h4>
+  <%= form_for @comment, url: post_comments_path do |f| %>
+    <%= f.text_area :body, :placeholder => "Enter your Comment", :class => "form-control" %><br>
+    <%= f.submit "Post Comment", class: "btn btn-primary" %>
+  <% end %>
+
+<br><br>
+
+<ul class="comment_list">
+  <%= render :partial => 'comment', :collection => @post.comments %>
+</ul>
